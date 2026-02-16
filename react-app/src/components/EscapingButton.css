@@ -1,0 +1,26 @@
+.escaping-button {
+  padding: 20px 40px;
+  font-size: 1.5em;
+  font-weight: 900;
+  font-family: 'Montserrat', sans-serif;
+  background: lime;
+  border: 5px solid purple;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: black;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.escaping-button:hover {
+  background: red;
+  color: white;
+}

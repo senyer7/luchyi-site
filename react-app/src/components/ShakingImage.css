@@ -1,0 +1,48 @@
+.shaking-image {
+  font-size: 100px;
+  background: linear-gradient(45deg, red, yellow, green, blue);
+  padding: 30px;
+  border: 5px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+  animation: imageSpin 2s linear infinite, imageShake 0.5s ease infinite;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+@keyframes imageSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes imageShake {
+  0%, 100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-5px) rotate(-5deg);
+  }
+  75% {
+    transform: translateX(5px) rotate(5deg);
+  }
+}
+
+.shaking-image:hover {
+  animation: imageExplode 0.3s ease;
+}
+
+@keyframes imageExplode {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(2) rotate(180deg);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
+}

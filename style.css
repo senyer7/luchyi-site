@@ -1,0 +1,379 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ffff00);
+    background-size: 400% 400%;
+    animation: gradientShift 5s ease infinite;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text y="24" font-size="24">🤡</text></svg>'), auto;
+    overflow-x: hidden;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Курсор-преследователь */
+.cursor-follower {
+    position: fixed;
+    font-size: 50px;
+    pointer-events: none;
+    z-index: 9999;
+    transition: all 0.5s ease;
+}
+
+/* Попапы */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: yellow;
+    border: 10px solid red;
+    padding: 30px;
+    z-index: 1000;
+    animation: shake 0.5s infinite;
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+}
+
+.popup.active {
+    display: block;
+}
+
+.popup-content {
+    text-align: center;
+}
+
+.popup-content h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    animation: pulse 1s infinite;
+}
+
+.close-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    font-weight: 900;
+    margin-top: 15px;
+    position: relative;
+    animation: buttonFloat 2s infinite;
+}
+
+.close-btn:hover {
+    transform: scale(0.5) rotate(180deg);
+}
+
+@keyframes shake {
+    0%, 100% { transform: translate(-50%, -50%) rotate(-5deg); }
+    50% { transform: translate(-50%, -50%) rotate(5deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+@keyframes buttonFloat {
+    0%, 100% { top: 0px; }
+    50% { top: 10px; }
+}
+
+/* Заголовок */
+.spinning-header {
+    background: linear-gradient(90deg, purple, pink, orange);
+    padding: 20px;
+    text-align: center;
+    animation: headerSpin 10s linear infinite;
+}
+
+@keyframes headerSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.rainbow-text {
+    font-size: 3em;
+    font-weight: 900;
+    animation: rainbow 2s linear infinite;
+    text-shadow: 5px 5px 10px black;
+}
+
+@keyframes rainbow {
+    0% { color: red; }
+    16% { color: orange; }
+    33% { color: yellow; }
+    50% { color: green; }
+    66% { color: blue; }
+    83% { color: indigo; }
+    100% { color: red; }
+}
+
+.marquee-text {
+    font-size: 2em;
+    font-weight: 700;
+    color: yellow;
+    background: red;
+    padding: 10px;
+}
+
+/* Навигация */
+.floating-nav {
+    position: fixed;
+    top: 50%;
+    right: -100px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    animation: floatIn 3s ease-in-out infinite;
+    z-index: 100;
+}
+
+@keyframes floatIn {
+    0%, 100% { right: -100px; }
+    50% { right: 20px; }
+}
+
+.nav-btn {
+    padding: 15px;
+    background: lime;
+    border: 5px solid magenta;
+    font-weight: 900;
+    cursor: pointer;
+    transform: rotate(-10deg);
+    transition: all 0.3s;
+}
+
+.nav-btn:hover {
+    transform: rotate(370deg) scale(1.5);
+}
+
+.invisible-btn {
+    opacity: 0.1;
+}
+
+.invisible-btn:hover {
+    opacity: 1;
+}
+
+/* Контент */
+.content {
+    padding: 50px;
+    min-height: 100vh;
+}
+
+.intro {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 30px;
+    margin: 20px 0;
+    border: 5px dashed blue;
+    transform: skew(-5deg);
+}
+
+.glitch-text {
+    font-size: 2.5em;
+    font-weight: 900;
+    animation: glitch 1s infinite;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-5px, 5px); }
+    40% { transform: translate(-5px, -5px); }
+    60% { transform: translate(5px, 5px); }
+    80% { transform: translate(5px, -5px); }
+    100% { transform: translate(0); }
+}
+
+.moving-text {
+    font-size: 1.2em;
+    animation: moveAround 5s infinite;
+}
+
+@keyframes moveAround {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(50px); }
+    50% { transform: translateX(0); }
+    75% { transform: translateX(-50px); }
+}
+
+/* Особенности */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 40px 0;
+}
+
+.feature-box {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 30px;
+    border: 3px solid black;
+    animation: boxBounce 2s infinite;
+}
+
+@keyframes boxBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.escape-button {
+    padding: 15px 30px;
+    background: red;
+    color: white;
+    border: none;
+    font-weight: 900;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.1s;
+}
+
+.annoying-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.annoying-form input {
+    padding: 10px;
+    border: 3px solid purple;
+    font-size: 1em;
+}
+
+.reverse-input {
+    direction: rtl;
+}
+
+.disappearing-input:focus {
+    animation: disappear 2s infinite;
+}
+
+@keyframes disappear {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.submit-rotating {
+    padding: 15px;
+    background: orange;
+    border: 3px solid blue;
+    font-weight: 900;
+    cursor: pointer;
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.color-changing {
+    animation: backgroundChange 3s infinite;
+}
+
+@keyframes backgroundChange {
+    0% { background: red; }
+    33% { background: green; }
+    66% { background: blue; }
+    100% { background: red; }
+}
+
+.color-changing-text {
+    animation: textColorChange 1s infinite;
+}
+
+@keyframes textColorChange {
+    0% { color: white; }
+    25% { color: black; }
+    50% { color: yellow; }
+    75% { color: cyan; }
+    100% { color: white; }
+}
+
+/* Галерея */
+.gallery {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.fake-image {
+    font-size: 100px;
+    background: white;
+    padding: 20px;
+    border: 5px solid black;
+}
+
+.spinning {
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.bouncing {
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-50px); }
+}
+
+.shaking {
+    animation: shake 0.5s infinite;
+}
+
+/* Скролл секция */
+.scroll-hijack {
+    height: 500px;
+    background: rgba(255, 255, 255, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+}
+
+/* Футер */
+.upside-down-footer {
+    background: black;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    transform: rotate(180deg);
+}
+
+.tiny-text {
+    font-size: 6px;
+    margin-top: 10px;
+}
+
+/* Специальные эффекты */
+.shaking-input {
+    animation: inputShake 0.3s infinite;
+}
+
+@keyframes inputShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}

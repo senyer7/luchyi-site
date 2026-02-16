@@ -1,0 +1,241 @@
+.App {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.App-header {
+  background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00);
+  padding: 40px;
+  text-align: center;
+  animation: headerPulse 3s infinite;
+  border-bottom: 10px solid black;
+}
+
+@keyframes headerPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.glitch-title {
+  font-weight: 900;
+  color: white;
+  text-shadow:
+    3px 3px 0 red,
+    -3px -3px 0 blue,
+    3px -3px 0 green;
+  animation: glitchAnimation 1s infinite;
+}
+
+@keyframes glitchAnimation {
+  0% { transform: translate(0) skew(0deg); }
+  20% { transform: translate(-2px, 2px) skew(2deg); }
+  40% { transform: translate(-2px, -2px) skew(-2deg); }
+  60% { transform: translate(2px, 2px) skew(-2deg); }
+  80% { transform: translate(2px, -2px) skew(2deg); }
+  100% { transform: translate(0) skew(0deg); }
+}
+
+.marquee-container {
+  overflow: hidden;
+  background: red;
+  padding: 15px 0;
+  margin-top: 20px;
+}
+
+.marquee {
+  font-size: 1.5em;
+  font-weight: 700;
+  color: yellow;
+  white-space: nowrap;
+  animation: marqueeScroll 10s linear infinite;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.content {
+  padding: 40px;
+  min-height: 80vh;
+}
+
+.interactive-section {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 30px;
+  margin: 20px 0;
+  border: 5px dashed purple;
+  animation: sectionFloat 3s infinite;
+}
+
+@keyframes sectionFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.button-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.click-counter {
+  font-size: 1.3em;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 20px;
+  animation: colorCycle 2s infinite;
+}
+
+@keyframes colorCycle {
+  0% { color: red; }
+  33% { color: green; }
+  66% { color: blue; }
+  100% { color: red; }
+}
+
+.form-section {
+  margin: 40px 0;
+  padding: 30px;
+  background: linear-gradient(180deg, yellow, pink);
+  border: 5px solid black;
+}
+
+.gallery-section {
+  margin: 40px 0;
+  text-align: center;
+}
+
+.rotating-text {
+  animation: rotate360 3s linear infinite;
+  display: inline-block;
+}
+
+@keyframes rotate360 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.chaos-section {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 40px;
+  margin: 40px 0;
+  border: 5px solid lime;
+}
+
+.chaos-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.crazy-text {
+  font-size: 1.2em;
+  animation: textWave 2s infinite;
+}
+
+@keyframes textWave {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  25% { transform: translateX(-10px) rotate(-5deg); }
+  75% { transform: translateX(10px) rotate(5deg); }
+}
+
+.useless-button {
+  padding: 15px 30px;
+  font-size: 1em;
+  font-weight: 900;
+  background: orange;
+  border: 3px solid purple;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.useless-button:hover {
+  transform: scale(1.2) rotate(180deg);
+  background: lime;
+}
+
+.App-footer {
+  background: black;
+  color: white;
+  padding: 30px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.upside-down {
+  transform: rotate(180deg);
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.tiny-text {
+  font-size: 8px;
+  opacity: 0.5;
+}
+
+.virus-alert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: red;
+  color: white;
+  padding: 50px;
+  border: 10px solid black;
+  z-index: 9999;
+  text-align: center;
+  animation: virusShake 0.3s infinite;
+}
+
+@keyframes virusShake {
+  0%, 100% { transform: translate(-50%, -50%) rotate(-2deg); }
+  50% { transform: translate(-50%, -50%) rotate(2deg); }
+}
+
+.fake-progress {
+  width: 100%;
+  height: 30px;
+  background: white;
+  margin-top: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.fake-progress::after {
+  content: '';
+  position: absolute;
+  width: 99%;
+  height: 100%;
+  background: lime;
+  animation: fakeLoad 2s ease-in-out infinite;
+}
+
+@keyframes fakeLoad {
+  0% { width: 0%; }
+  50% { width: 99%; }
+  100% { width: 99%; }
+}
+
+/* Адаптивность (которая не работает правильно) */
+@media (max-width: 768px) {
+  .App {
+    transform: rotate(5deg) !important;
+  }
+
+  .glitch-title {
+    font-size: 1.5em !important;
+  }
+}

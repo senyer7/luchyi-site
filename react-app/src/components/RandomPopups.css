@@ -1,0 +1,84 @@
+.random-popups-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9998;
+  pointer-events: none;
+}
+
+.random-popup {
+  position: fixed;
+  width: 300px;
+  padding: 20px;
+  border: 5px solid black;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  animation: popupSlideIn 0.5s ease, popupShake 0.5s ease infinite;
+  pointer-events: all;
+}
+
+@keyframes popupSlideIn {
+  from {
+    transform: translateX(400px) rotate(0deg);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes popupShake {
+  0%, 100% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.popup-header h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 1.2em;
+  margin: 0;
+  animation: textPulse 1s ease infinite;
+}
+
+@keyframes textPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.popup-close {
+  background: red;
+  border: 2px solid black;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: all 0.3s;
+}
+
+.popup-close:hover {
+  transform: scale(1.5) rotate(180deg);
+  background: lime;
+}
+
+.random-popup p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  margin: 0;
+}

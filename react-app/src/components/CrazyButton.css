@@ -1,0 +1,35 @@
+.crazy-button {
+  padding: 20px 40px;
+  font-size: 1.5em;
+  font-weight: 900;
+  font-family: 'Montserrat', sans-serif;
+  border: 5px solid black;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: buttonBounce 2s infinite;
+}
+
+@keyframes buttonBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.crazy-button:hover {
+  animation: buttonShake 0.3s infinite;
+}
+
+@keyframes buttonShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.crazy-button:active {
+  transform: scale(0.5) rotate(720deg) !important;
+}
